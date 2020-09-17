@@ -2,21 +2,28 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login'
 import Home from '../components/Home'
+import Welcome from '../components/Welcome'
+import Users from '../components/user/User'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [{
     path: '/',
+    // 路由重定向
     redirect: '/login'
   },
   {
+    // 访问哪个路由就展示对应组件
     path: '/login',
-    name: 'Login',
     component: Login
   },
   {
     path: '/home',
-    name: 'Home',
-    component: Home
+    component: Home,
+    redirect: '/welcome',
+    children: [
+      { path: '/welcome', component: Welcome },
+      { path: '/users', component: Users }
+    ]
   }]
 })
 // 挂载路由导航守卫
