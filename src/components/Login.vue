@@ -6,10 +6,7 @@
       <!-- avatar用户头像区域开始 -->
       <div class="avatar_box">
         <img
-        src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&
-        sec=1599933144065&di=de936889be9f3b4df367ba1a91ed9650&imgtype=0&src=h
-        ttp%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F03%2F02%2F14%2F5ae82e4d
-        ee186_610.jpg"
+        src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599933144065&di=de936889be9f3b4df367ba1a91ed9650&imgtype=0&src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F03%2F02%2F14%2F5ae82e4dee186_610.jpg"
         >
       </div>
       <!-- 头像区域结束 -->
@@ -35,7 +32,7 @@
           <!-- iconfont是必要的，后面是图标名称，复制去掉. -->
           <!-- :model="loginForm.username"绑定到表单数据绑定对象的属性上 -->
           <el-input
-          :model="loginForm.username"
+          v-model="loginForm.username"
           prefix-icon="iconfont icon-user"
           >
           </el-input>
@@ -45,7 +42,7 @@
         prop="password"
         >
           <el-input
-          :model="loginForm.password"
+          v-model="loginForm.password"
           prefix-icon="iconfont icon-3702mima"
           type="password"
           >
