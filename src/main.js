@@ -13,9 +13,12 @@ import axios from 'axios'
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 // 挂载原型的axios属性，这样每一个Vue实例都可以通过$http属性发起axios请求
 Vue.prototype.$http = axios
-// 设置axios拦截器即请求预处理
+// 配置axios请求拦截器即请求预处理
+// axios内部interceptors属性内部成员request调用use挂载回调函数
+// config是请求对象，包含众多属性
 axios.interceptors.request.use(config => {
   // config.log(config)
+  // 在config请求对象headers内添加Authorization属性，其值为保存的token值
   config.headers.Authorization = window.sessionStorage.getItem('token')
   // 最后必须return config
   return config
